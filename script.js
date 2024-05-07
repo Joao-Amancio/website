@@ -1,0 +1,59 @@
+// script.js
+
+// Função para abrir a página com base no ID da seção
+function openPage(pageId) {
+  // Esconde todas as seções
+  var sections = document.getElementsByTagName("section")
+  for (var i = 0; i < sections.length; i++) {
+    sections[i].style.display = "none"
+  }
+
+  // Mostra apenas a seção com o ID correspondente
+  document.getElementById(pageId).style.display = "block"
+}
+
+// Função para alternar o menu
+function toggleMenu() {
+  var nav = document.querySelector(".nav")
+  nav.classList.toggle("active")
+
+  // Adiciona um event listener para fechar o menu quando clicar fora
+  if (nav.classList.contains("active")) {
+    document.addEventListener("click", closeMenuOutside)
+  } else {
+    document.removeEventListener("click", closeMenuOutside)
+  }
+}
+
+//
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  const slides = document.getElementsByClassName("slide");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  slides[slideIndex-1].style.display = "block";  
+}
+
+function autoSlide() {
+  plusSlides(1);
+  setTimeout(autoSlide, 5000); // Mude o valor de 5000 para ajustar o intervalo de transição (em milissegundos)
+}
+
+autoSlide(); // Inicia a transição automática ao carregar a página
+
+

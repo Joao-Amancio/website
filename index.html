@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minha Página</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      @media (max-width: 768px) {
+        .nav.active {
+          flex-direction: column;
+          align-items: center;
+        }
+        .nav.active ul {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .nav.active ul li {
+          margin-bottom: 10px;
+        }
+      }
+      /*alinha a lista para o left*/
+      @media (max-width: 768px) {
+        .nav.active ul {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start; /* Alinha à esquerda em telas menores */
+        }
+      }
+
+      .familia {
+        float: left;
+        border-radius: 10px;
+        padding-right: 10px;
+      }
+
+      .baixo {
+        top: 40px;
+        float: right;
+        width: 150px;
+        height: 250px;
+        padding-left: 15px;
+        border-radius: 20px;
+      }
+
+      .bass {
+        background-color: black;
+        color: white;
+        padding: 10px;
+      }
+
+      .violao {
+        top: 40px;
+        float: left;
+        width: 250px;
+        height: 350px;
+        left: -10px;
+      }
+
+      .meurefugio {
+        float: right;
+        width: 250px;
+        height: 250px;
+        margin-right: 5px;
+        margin-top: 20px;
+        border-radius: 10px;
+      }
+
+      .cd {
+        float: right;
+        width: 250px;
+        height: 250px;
+        margin-right: 5px;
+        margin-top: 20px;
+        border-radius: 10px;
+      }
+
+      .mrefugio {
+        float: right;
+        width: 250px;
+        height: 250px;
+        margin-right: 5px;
+        margin-top: 20px;
+        border-radius: 10px;
+      }
+
+      .button-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #3d4145; /* Cor de fundo */
+        color: #fff; /* Cor do texto */
+        text-decoration: none; /* Remove o sublinhado padrão */
+        border: none; /* Remove a borda padrão */
+        border-radius: 20px; /* Borda arredondada */
+        cursor: pointer; /* Altera o cursor ao passar por cima */
+        transition: background-color 0.3s; /* Transição suave da cor de fundo */
+      }
+
+      /* Estilo hover para o link dentro do botão */
+      .button-link:hover {
+        background-color: #75818e; /* Altera a cor de fundo ao passar o mouse */
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo" style="text-align: center">AMANCIO JR</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#home" onclick="openPage('home')">HOME</a></li>
+          <li>
+            <a href="#biografia" onclick="openPage('biografia')">BIOGRAFIA</a>
+          </li>
+          <li>
+            <a href="#discografia" onclick="openPage('discografia')"
+              >DISCOGRAFIA</a
+            >
+          </li>
+          <li><a href="#contato" onclick="openPage('contato')">CONTATO</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+    </header>
+
+    <main id="main-content">
+      <div class="slideshow-container">
+        <div class="slide">
+          <img src="./assets/img1.png" alt="Slide 1" />
+        </div>
+        <div class="slide">
+          <img src="./assets/img2.png" alt="Slide 2" />
+        </div>
+        <div class="slide">
+          <img src="./assets/img3.png" alt="Slide 3" />
+        </div>
+        <div class="slide">
+          <img src="./assets/img4.png" alt="Slide 4" />
+        </div>
+        <div class="slide">
+          <img src="./assets/img5.png" alt="Slide 5" />
+        </div>
+        <div class="slide">
+          <img src="./assets/img6.png" alt="Slide 6" />
+        </div>
+
+        <!-- Adicione mais slides conforme necessário -->
+        <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+        <button class="next" onclick="plusSlides(1)">&#10095;</button>
+      </div>
+      <section id="home">
+        <h1>Home</h1>
+
+        <h2 style="text-align: center">Sejam Bem-Vindos!</h2>
+        <br />
+        <img
+          class="familia"
+          src="./assets/familia.jpeg"
+          alt=""
+          style="width: 180px; height: 180px"
+        />
+        <p>
+          &nbsp;Recife, PE, Brazil <br /><br />
+          Olá pessoal! Sou Júnior Amancio e estou aqui juntamente com minha
+          esposa Juliana e nossos amados Filhos Levi e Sara para compartilhar
+          com vocês as maravilhas que o Senhor faz em nossas vidas. Somos
+          adoradores apaixonados que anda no sobrenatural, famintos e sedentos
+          por MAIS DE DEUS. A Palavra Amancio, vem do latim e significa
+          "Apaixonado" ou "aquele que ama", assim somos por Jesus! Contato: Tim
+          (81) 996174799 fale com Juliana ou Whatsaap 819xxxxxxxx fale comigo.
+          Email: amanciojr.144@gmail.com <br />
+        </p>
+      </section>
+      <br />
+      <section id="biografia" class="bass">
+        <img class="baixo" src="./assets/baixo.jpeg" alt="" />
+        <h1>Biografia</h1>
+        <p>
+          Bem pessoal, gostaria de falar agora um pouco sobre o que Deus fez na
+          minha vida. Eu nasci em 13/outubro/1979 e duas parteiras freiras
+          fizeram meu parto, acontece que quando nasci eu era um bebê muito
+          lindo e o maior do berçário, com isto as parteiras freiras puseram os
+          olhos em mim e insistentemente pediram a minha mãe para que me dessem
+          a elas, mas minha mãe como uma mulher temente a Deus e amorosa não
+          atendeu as mesmas, Bem, começa então as tentativas do inimigo contra
+          mim. As parteiras esqueceram dentro de minha mãe na hora do parto uma
+          compressa, quando recebeu alta, em casa começou a sentir dores e foi
+          socorrida e se submeteu a uma cirurgia para tirar a compressa e ficou
+          internada durante 1 ano, com isto não mamei. Os anos foram se passando
+          e não conseguia me alimentar a não ser de papa, isto durou 6 anos e
+          meio, quando estava próximo de completar 7 anos de idade minha mãe já
+          preocupada, já havia me levado para vários médicos, psicologo e
+          dentista que disseram não haver problema algum em mim, inclusive o
+          psicologo falou que foi costume que ela pôs em mim, só que ela teve
+          experiência de criar 6 filhos, não tinha lógica de de por costume no
+          7º filho que era eu, restou esperar e ver se sobreviveria a esta
+          situação, até que minha mãe teve um sonho e neste sonho ela pôs um
+          prato de comida pra mim e me chamou para comer, ao sentar na mesa
+          aproximou-se de mim uma serpente enorme, mãe me puxou da mesa e a
+          serpente começou a comer minha comida até deixar o prato lambido, ela
+          foi chamar o vizinho para matar a serpente que quando chegou a
+          serpente já havia fugido, despertou do sono e começou a entender que
+          minha situação era espiritual, logo se dirigiu a Igreja para um culto
+          de oração e orou com os irmãos por mim, após as orações na mesma
+          semana, lembro como se fosse hoje, percebi o cheiro da comida pela
+          primeira vez e na porta da cozinha olhando para minha mãe afim de
+          almoçar, minha mamãe olhou para mim e disse que estava pondo o meu eu
+          disse que sim, que eu queria, ela disse que estava falando sério e eu
+          disse o mesmo, então ela o fez e me chamou para almoçar. Irmãos e
+          irmãs, neste dia comecei a comer desesperadamente quase com 7 aninhos,
+          ela quis me ensinar como pegar na colher, mas eu não quis saber disso,
+          soltei a colher e fui com a mão no prato no maior desespero, quando
+          acabou eu disse: quero mais, quero mais, repeti 2 pratos e grande foi
+          a festa na cozinha com a família neste dia. A parti daí, hoje como de
+          tudo e estou bem para glória de Deus, o inimigo foi derrotado mais uma
+          vez e tenta de várias formas impedir-me de conquistar o que Deus tem
+          pra mim, mas é debalde, aparece a mim em sonhos com formas de
+          serpente, até como anjo de luz afim de me enganar apareceu em sonho,
+          mas em Cristo Jesus somos mais que vencedores. Hoje sou músico,
+          Levita, ministro de Louvor e adoração, cantor e compositor, tenho uma
+          linda esposa Juliana e um lindo filho Levi, sou servo do Deus
+          altíssimo e Deus me confiou vários talentos musicais para exercer na
+          sua obra para glória de Deus e que o diabo morra de inveja.
+        </p>
+      </section>
+      <br />
+      <section
+        id="discografia"
+        class="bass"
+        style="background: #272222; border-radius: 20px"
+      >
+        <h1>Discografia</h1>
+        <br />
+        <img class="meurefugio" src="./assets/meu refugio.jpg" alt="" />
+        <img class="cd" src="./assets/cd meu refugio.png" alt="" />
+        <img class="mrefugio" src="./assets/mrefugio.png" alt="" />
+        <p>
+          Veja aqui as discografias. Este é o primeiro Álbum Meu refúgio gravado
+          em 2002.
+        </p>
+        <div class="input-group" style="display: block">
+          <p>Meu Refúgio</p>
+
+          <button>
+            <a
+              href="http://www.4shared.com/mp3/9-wOM1uc/Meu_Refgio.html?"
+              class="button-link"
+            >
+              Baixar
+            </a>
+          </button>
+
+          <p>Não posso me esquecer</p>
+
+          &nbsp;<button>
+            <a
+              href="http://www.4shared.com/mp3/KZ365Cj3/No_posso_me_esquecer.html?"
+              class="button-link"
+            >
+              Baixar
+            </a>
+          </button>
+
+          <p>Cântico de Guerra</p>
+
+          <button>
+            <a
+              href="http://www.4shared.com/mp3/wnHKu6Zn/Cntico_de_guerra.html?"
+              class="button-link"
+            >
+              Baixar
+            </a>
+          </button>
+
+          <p>Poder Espiritual</p>
+
+          <button>
+            <a
+              href="http://www.4shared.com/mp3/-v9FTOc0/Poder_espiritual.html?"
+              class="button-link"
+            >
+              Baixar
+            </a>
+          </button>
+
+          <p>Consagração</p>
+
+          <button>
+            <a
+              href="http://www.4shared.com/mp3/Ro3rUkFu/Consagrao.html?"
+              class="button-link"
+            >
+              Baixar
+            </a>
+          </button>
+
+          <br /><br />
+          <p>Figueira</p>
+
+          <button>
+            <a
+              href="http://www.4shared.com/mp3/34zEQsst/Figueira.html?"
+              class="button-link"
+            >
+              Baixar
+            </a>
+          </button>
+          <div
+            style="
+              display: grid;
+              padding-left: 100px;
+              padding-right: 100px;
+              text-align: center;
+            "
+          >
+            <p>Eu hei de O abraçar</p>
+
+            <button>
+              <a
+                href="http://www.4shared.com/mp3/-WKT5eg3/Eu_hei_de_O_abraar.html?"
+                class="button-link"
+              >
+                Baixar
+              </a>
+            </button>
+
+            <p>Bendito</p>
+
+            <button>
+              <a
+                href="http://www.4shared.com/mp3/fvqBiJXA/Bendito.html?"
+                class="button-link"
+              >
+                Baixar
+              </a>
+            </button>
+
+            <p>Eu vou louvar</p>
+            <button>
+              <a
+                href="http://www.4shared.com/mp3/Nn9H3jJg/Eu_vou_louvar.html?"
+                class="button-link"
+              >
+                Baixar
+              </a>
+            </button>
+          </div>
+        </div>
+      </section>
+      <br />
+      <section id="contato">
+        <img class="violao" src="./assets/violao.jpeg" alt="" />
+        <h1>Contato / Agenda</h1>
+        <p>Entre em contato conosco.</p>
+        <div class="container">
+          <form
+            action="https://formsubmit.co/ajax/9ec83d3ee01522185f0387f9b90284cd"
+            method="POST"
+            data-form
+            id="myForm"
+            class="form"
+          >
+            <div class="input-group">
+              <input type="text" id="nome" placeholder="Nome" required />
+              <input
+                type="text"
+                id="sobrenome"
+                placeholder="Sobrenome"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <input type="email" id="email" placeholder="E-mail" required />
+              <input
+                type="tel"
+                id="celular"
+                placeholder="Celular WhatsApp"
+                required
+              />
+            </div>
+            <textarea id="mensagem" placeholder="Mensagem" required></textarea>
+            <button type="submit">Enviar</button>
+            <br />
+          </form>
+        </div>
+      </section>
+    </main>
+    <br /><br />
+    <footer>
+      <p>&copy; 2024 Meu Site. Todos os direitos reservados.</p>
+    </footer>
+    <script src="./script.js"></script>
+    <script>
+      document.addEventListener("click", function (event) {
+        var menuToggle = document.querySelector(".menu-toggle")
+        var nav = document.querySelector(".nav")
+
+        if (!menuToggle.contains(event.target) && !nav.contains(event.target)) {
+          nav.classList.remove("active")
+        }
+      })
+    </script>
+    <script>
+      function toggleMenu() {
+        var nav = document.querySelector(".nav")
+        nav.classList.toggle("active")
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var menuItems = document.querySelectorAll(".nav ul li a")
+
+        menuItems.forEach(function (item) {
+          item.addEventListener("click", function () {
+            var nav = document.querySelector(".nav")
+            nav.classList.remove("active")
+          })
+        })
+      })
+    </script>
+  </body>
+</html>

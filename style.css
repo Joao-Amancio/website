@@ -1,0 +1,311 @@
+body {
+  font-family: Arial, sans-serif;
+  background: black;
+  color: white;
+}
+
+/*header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}*/
+
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style-type: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-toggle {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: none;
+  font-weight: bold;
+}
+
+.logo {
+  display: block;
+  text-align: center;
+  font-size: 25px;
+  margin: 0 auto;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+@media only screen and (max-width: 600px) {
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 8px;
+    background-color: #333;
+    padding: 10px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 38%; /* Ajuste para cobrir toda a largura */
+    font-size: 18px; /* Aumentar o tamanho da fonte do menu */
+    opacity: 0.9;
+    z-index: 1;
+  }
+  .menu-toggle {
+    display: block; /* Mostrar o botão de menu */
+  }
+  .nav.active {
+    display: flex;
+  }
+  .nav.active li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  /* Estilos adicionais para dispositivos móveis */
+  .nav.active {
+    top: 75px; /* Posiciona o menu abaixo do cabeçalho */
+  }
+
+  .nav li {
+    margin-bottom: 15px; /* Aumentar o espaço entre os itens do menu */
+  }
+
+  .nav.active li {
+    margin-right: 0; /* Garantir que não haja margem direita nos itens da lista */
+    margin-bottom: 10px; /* Adicionar espaço entre os itens da lista */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /* Outros estilos existentes... */
+
+  .nav.active {
+    display: flex;
+    flex-direction: column; /* Exibir os itens em coluna quando o menu está ativo */
+  }
+
+  .column-item {
+    margin-right: 0; /* Remover margem direita dos itens */
+    margin-bottom: 10px; /* Adicionar espaço entre os itens */
+  }
+}
+
+/* Estilos adicionais para desktop */
+@media only screen and (min-width: 601px) {
+  .nav {
+    display: flex; /* Garantir que o menu esteja visível no desktop */
+    justify-content: center; /* Centralizar os itens do menu */
+  }
+}
+
+/* Estilo para o Formulário de contato*/
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.input-group input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #474b4f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+button:hover {
+  background-color: #3c4248;
+}
+
+@media (min-width: 768px) {
+  .input-group {
+    flex-direction: row;
+  }
+
+  .input-group input {
+    width: calc(50% - 5px);
+    margin-right: 10px;
+  }
+}
+
+/* Estilos adicionais para desktop */
+@media only screen and (min-width: 601px) {
+  .nav {
+    margin: 0 auto; /* Centraliza a lista de navegação */
+  }
+}
+
+/* Estilos adicionais para desktop */
+@media only screen and (min-width: 601px) {
+  .nav {
+    margin: 0 auto; /* Centraliza a lista de navegação */
+  }
+
+  .nav ul {
+    display: flex; /* Torna a lista de navegação horizontal */
+    padding: 0; /* Remove o preenchimento padrão da lista */
+  }
+
+  .nav li {
+    margin-right: 20px; /* Mantém a margem entre os itens da lista */
+  }
+
+  .nav li:last-child {
+    margin-right: 0; /* Remove a margem direita do último item da lista */
+  }
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Adicionando regras de estilo para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 16px; /* Aumentar o tamanho da fonte para dispositivos móveis */
+  }
+  .header {
+    padding: 10px; /* Reduzir o padding do cabeçalho */
+  }
+  .nav {
+    padding: 10px 0; /* Adicionar espaço entre os itens do menu */
+  }
+  .nav li {
+    margin-right: 0;
+    margin-bottom: 10px; /* Aumentar o espaço entre os itens do menu */
+  }
+  .menu-toggle {
+    padding: 10px; /* Aumentar o tamanho do botão de menu */
+  }
+  main {
+    padding: 20px; /* Adicionar espaço entre as seções do conteúdo */
+  }
+  p {
+    line-height: 1.6; /* Aumentar o espaçamento entre linhas */
+  }
+  h1,
+  h2,
+  h3 {
+    margin-top: 20px; /* Adicionar espaço antes dos títulos */
+    margin-bottom: 10px; /* Adicionar espaço após os títulos */
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 16px; /* Aumentar o tamanho da fonte nos campos de formulário */
+  }
+
+  input,
+  textarea {
+    border: 2px solid #f0f0f0;
+    display: block;
+    border-radius: 15px;
+    font-size: 14px;
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Adicionando regras de estilo para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+  /* Outros estilos existentes... */
+
+  .nav {
+    font-size: 18px; /* Aumentar o tamanho da fonte do menu */
+  }
+
+  .nav li {
+    margin-bottom: 15px; /* Aumentar o espaço entre os itens do menu */
+  }
+}
+
+/* Adicionando regras de estilo para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+  /* Outros estilos existentes... */
+
+  .menu-toggle {
+    padding: 1px 35px; /* Aumentar o tamanho do botão de menu */
+    font-size: 28px; /* Aumentar o tamanho da fonte do botão */
+    font-weight: bold;
+  }
+}
+
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+}
+
+.slide {
+  display: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
