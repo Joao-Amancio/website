@@ -1,7 +1,16 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 1fab057b56c73be0db9f64ed2e411f28e9fed724
 body {
   font-family: Arial, sans-serif;
   background: black;
   color: white;
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 1fab057b56c73be0db9f64ed2e411f28e9fed724
 }
 
 /*header {
@@ -151,6 +160,10 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 20px;
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 1fab057b56c73be0db9f64ed2e411f28e9fed724
 }
 
 button:hover {
