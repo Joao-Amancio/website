@@ -56,4 +56,21 @@ function autoSlide() {
 
 autoSlide(); // Inicia a transição automática ao carregar a página
 
+// Função para recuperar o valor atual do contador do armazenamento local
+function getCounter() {
+    return localStorage.getItem('visits') || 0;
+}
+
+// Função para incrementar o contador de visitas e atualizar a exibição
+function incrementCounter() {
+    let counter = parseInt(getCounter());
+    counter++;
+    localStorage.setItem('visits', counter);
+    document.getElementById('counter').textContent = counter;
+}
+
+// Ao carregar a página, incrementar o contador de visitas
+window.onload = function() {
+    incrementCounter();
+};
 
