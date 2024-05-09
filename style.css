@@ -281,13 +281,26 @@ textarea {
   max-width: 100%;
 }
 
-.slide {
+.slides {
   display: none;
 }
 
 img {
   width: 100%;
 }
+
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
 
 .prev,
 .next {
