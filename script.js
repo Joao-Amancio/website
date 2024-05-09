@@ -34,13 +34,10 @@ function plusSlides(n) {
   showSlides((slideIndex += n))
 }
 
-function currentSlide(n) {
-  showSlides((slideIndex = n))
-}
-
 function showSlides(n) {
   let i
-  const slides = document.getElementsByClassName("slide")
+  let slides = document.getElementsByClassName("slide")
+
   if (n > slides.length) {
     slideIndex = 1
   }
@@ -53,12 +50,8 @@ function showSlides(n) {
   slides[slideIndex - 1].style.display = "block"
 }
 
-function autoSlide() {
-  plusSlides(1)
-  setTimeout(autoSlide, 5000) // Mude o valor de 5000 para ajustar o intervalo de transição (em milissegundos)
-}
 
-autoSlide() // Inicia a transição automática ao carregar a página
+
 
 // Função para recuperar o valor atual do contador do armazenamento local
 function getCounter() {
@@ -77,6 +70,5 @@ function incrementCounter() {
 window.onload = function () {
   incrementCounter()
 }
-
 
 src = "https://contador.s12.com.br/ad.js?id=dyZ6w3bZa4aCxC4y"
