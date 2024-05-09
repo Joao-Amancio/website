@@ -27,50 +27,56 @@ function toggleMenu() {
 
 //
 
-let slideIndex = 1;
-showSlides(slideIndex);
+let slideIndex = 1
+showSlides(slideIndex)
 
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  showSlides((slideIndex += n))
 }
 
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+  showSlides((slideIndex = n))
 }
 
 function showSlides(n) {
-  let i;
-  const slides = document.getElementsByClassName("slide");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
+  let i
+  const slides = document.getElementsByClassName("slide")
+  if (n > slides.length) {
+    slideIndex = 1
   }
-  slides[slideIndex-1].style.display = "block";  
+  if (n < 1) {
+    slideIndex = slides.length
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none"
+  }
+  slides[slideIndex - 1].style.display = "block"
 }
 
 function autoSlide() {
-  plusSlides(1);
-  setTimeout(autoSlide, 5000); // Mude o valor de 5000 para ajustar o intervalo de transição (em milissegundos)
+  plusSlides(1)
+  setTimeout(autoSlide, 5000) // Mude o valor de 5000 para ajustar o intervalo de transição (em milissegundos)
 }
 
-autoSlide(); // Inicia a transição automática ao carregar a página
+autoSlide() // Inicia a transição automática ao carregar a página
 
 // Função para recuperar o valor atual do contador do armazenamento local
 function getCounter() {
-    return localStorage.getItem('visits') || 0;
+  return localStorage.getItem("visits") || 0
 }
 
 // Função para incrementar o contador de visitas e atualizar a exibição
 function incrementCounter() {
-    let counter = parseInt(getCounter());
-    counter++;
-    localStorage.setItem('visits', counter);
-    document.getElementById('counter').textContent = counter;
+  let counter = parseInt(getCounter())
+  counter++
+  localStorage.setItem("visits", counter)
+  document.getElementById("counter").textContent = counter
 }
 
 // Ao carregar a página, incrementar o contador de visitas
-window.onload = function() {
-    incrementCounter();
-};
+window.onload = function () {
+  incrementCounter()
+}
 
+
+src = "https://contador.s12.com.br/ad.js?id=dyZ6w3bZa4aCxC4y"
