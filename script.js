@@ -27,7 +27,23 @@ function toggleMenu() {
 
 //
 
-let slideIndex = 1
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("slides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 5000); // Troca de imagem a cada 2 segundos
+}
+
+
+/*let slideIndex = 1
 showSlides(slideIndex)
 
 function plusSlides(n) {
@@ -56,7 +72,7 @@ function showSlides(n) {
 function autoSlide() {
   plusSlides(1)
   setTimeout(autoSlide, 5000) // Mude o valor de 5000 para ajustar o intervalo de transição (em milissegundos)
-}
+}*/
 
 autoSlide() // Inicia a transição automática ao carregar a página
 
