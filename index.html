@@ -103,6 +103,11 @@
       .button-link:hover {
         background-color: #75818e; /* Altera a cor de fundo ao passar o mouse */
       }
+
+      .iframe {
+        text-align: center;
+        
+      }
     </style>
   </head>
   <body>
@@ -124,16 +129,26 @@
       </nav>
       <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
     </header>
+      <div class="slideshow-container">
+    <div class="slide fade">
+        <img src="./assets/img1.jpg" alt="Slide 1">
+    </div>
+    <div class="slide fade">
+        <img src="./assets/img2.jpg" alt="Slide 2">
+    </div>
+    <div class="slide fade">
+    <img src="./assets/img3.jpg" alt="Slide 3">
+    </div>
 
-    
-
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
     <main id="main-content">
         
       <br>
       <section id="home">
-        <h1>Home</h1>
-
-        <h2 style="text-align: center">Sejam Bem-Vindos!</h2>
+        <h1 style="text-align: center;">Home</h1>
+        <p style="font-weight: bold; text-align: center;">Que bom ter você por aqui!<p>
         <br />
         <img
           class="familia"
@@ -143,20 +158,20 @@
         />
         <p>
           &nbsp;Recife, PE, Brazil <br /><br />
-          Olá pessoal! Sou Júnior Amancio e estou aqui juntamente com minha
+          Olá! Sou Júnior Amancio e estou aqui juntamente com minha
           esposa Juliana e nossos amados Filhos Levi e Sara para compartilhar
           com vocês as maravilhas que o Senhor faz em nossas vidas. Somos
           adoradores apaixonados que anda no sobrenatural, famintos e sedentos
           por MAIS DE DEUS. A Palavra Amancio, vem do latim e significa
-          "Apaixonado" ou "aquele que ama", assim somos por Jesus! Contato: Tim
-          (81) 996174799 fale com Juliana ou Whatsaap 819xxxxxxxx fale comigo.
-          Email: amanciojr.144@gmail.com <br />
+          "Apaixonado" ou "aquele que ama", assim somos por Jesus! Para qualquer contato, clique na aba de contato e fale diretamente comigo.<br />
         </p>
       </section>
       <br />
       <section id="biografia" class="bass">
+        <h1 style="text-align: center;">Biografia</h1>
+        <p style="text-align: center;">Biografia e Testemunho</p>
         <img class="baixo" src="./assets/baixo.jpeg" alt="" />
-        <h1>Biografia</h1>
+        
        
         <p>
            <details>
@@ -214,6 +229,7 @@
         style="background: #272222; border-radius: 20px"
       >
         <h1 >Discografia</h1>
+        <h3>Ouça e faça Download</h3>
         <br>
         <h3 style="font-family: 'Courier New', Courier, monospace;">Meu Refúgio</h3>
         <br />
@@ -445,16 +461,23 @@
 <br><br>
             <p>Consagração</p>
             <button>
-              <a href=" https://www.4shared.com/mp3/LXccQfjljq/09_Consagrao__1_.html                 
-                class="button-link"
+              <a href=" https://www.4shared.com/mp3/LXccQfjljq/09_Consagrao__1_.html"                 
+              class="button-link"  
               target="_blank">
                 Download
               </a>
             </button>
           
         </details>
+        <div class="iframe">
+      <h1>Dependo de ti</h1>
+      <p>A canção dependo de ti é uma das mais de 150 canções compostas que eu não lancei, mas que é uma canção muito bela. Que esta canção te aproxime de Deus como sua fonte ar, motivação, luz, pão e água.</p>
+        <iframe width="360" height="450" src="https://www.youtube.com/embed/TDFydKZ1pXI?si=m51Ao774qEz13iaV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
       </section>
       <br />
+      
+
       <section id="contato">
         <img class="violao" src="./assets/violao.jpeg" alt="" />
         <h1>Contato / Agenda</h1>
