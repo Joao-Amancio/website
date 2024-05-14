@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minha Página</title>
+    <script src="https://www.youtube.com/iframe_api"></script>
     <link rel="stylesheet" href="./style.css" />
     <style>
       @media (max-width: 768px) {
@@ -109,6 +110,8 @@
         font-size: 15px;
         
       }
+
+      
     </style>
   </head>
   <body>
@@ -169,8 +172,9 @@
       </section>
       <br />
       <section id="biografia" class="bass">
-        <h1 style="text-align: center;">Biografia</h1>
-        <p style="text-align: center;">Biografia e Testemunho</p>
+        <div class="happy"><h1 style="text-align: center; ">Biografia</h1></div>
+        <div class="bday"><p style="text-align: center; font-weight: bold; font-size: 25px; margin-top: 5px ;">Biografia e Testemunho</p></div>
+        
         <img class="baixo" src="./assets/baixo.jpeg" alt="" />
         
        
@@ -472,11 +476,19 @@
         </details>
         <div class="iframe">
       <h1>Músicas</h1>
-      <p>Dependo de ti e Enfermo de Amor</p>
-        <iframe width="100" height="100" src="https://www.youtube.com/embed/TDFydKZ1pXI?si=m51Ao774qEz13iaV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>&nbsp; &nbsp;
+      <p style="font-family: cursive; font-weight: bold;">Dependo de ti e Enfermo de Amor</p>
 
-        <iframe width="100" height="100" src="https://www.youtube.com/embed/q_FMxi42-co?si=VDhwFi8L1SW1I_q9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
+      <details>
+       <summary><p style="font-weight: bold;">Clique aqui para Ouvir</p></summary>
+        <iframe class="youtube-video" width="360" height="215" src="https://www.youtube.com/embed/TDFydKZ1pXI?si=m51Ao774qEz13iaV" frameborder="0" allowfullscreen></iframe>
+        <br><br>
+        <iframe class="youtube-video" width="360" height="215" src="https://www.youtube.com/embed/q_FMxi42-co?si=VDhwFi8L1SW1I_q9" frameborder="0" allowfullscreen></iframe>
+          
+        </div>
+</details>
+
+        
+   
       </section>
       <br />
       
@@ -484,7 +496,7 @@
       <section id="contato">
         <img class="violao" src="./assets/violao.jpeg" alt="" />
         <h1>Contato / Agenda</h1>
-        <p>Entre em contato conosco.</p>
+        <p style="font-family: cursive;">Entre em contato conosco.</p>
         <div class="container">
           <form
             action="https://formsubmit.co/ajax/9ec83d3ee01522185f0387f9b90284cd"
@@ -494,11 +506,11 @@
             class="form"
           >
             <div class="input-group">
-              <input type="text" id="nome" placeholder="Nome" required />
+              <input type="text" id="nome" placeholder="Nome" name="Nome" required />
               <input
                 type="text"
                 id="sobrenome"
-                placeholder="Sobrenome"
+                placeholder="Sobrenome" name="Sobrenome"
                 required
               />
             </div>
@@ -507,12 +519,14 @@
               <input
                 type="tel"
                 id="celular"
-                placeholder="Celular WhatsApp"
+                placeholder="Celular WhatsApp" name="Celular WhatsApp"
                 required
               />
             </div>
-            <textarea id="mensagem" placeholder="Mensagem" required></textarea>
-            <button type="submit">Enviar</button>
+            <div class="input-group">
+            <textarea id="mensagem" placeholder="Mensagem" name="Mensagem" required></textarea>
+            </div>
+            <button type="submit" data-button>Enviar</button>
             <br />
           </form>
         </div>
@@ -574,6 +588,59 @@
       })
     </script>
     
+     <script>
+    // Variável para armazenar a referência ao player do vídeo ativo
+    let currentVideoPlayer = null;
+
+    // Função para pausar o vídeo atual
+    function pauseCurrentVideo() {
+        if (currentVideoPlayer) {
+            currentVideoPlayer.pauseVideo();
+        }
+    }
+
+    // Função chamada quando um vídeo é clicado
+    function onVideoClicked(player) {
+        // Pausa o vídeo atual (se houver)
+        pauseCurrentVideo();
+
+        // Define o novo vídeo como o vídeo ativo
+        currentVideoPlayer = player;
+
+        // Reproduz o novo vídeo
+        player.playVideo();
+    }
+
+    // Função chamada quando a API do YouTube está pronta
+    function onYouTubeIframeAPIReady() {
+        // Cria os players para cada vídeo
+        const players = [];
+        document.querySelectorAll('.youtube-video').forEach(function (iframe) {
+            players.push(new YT.Player(iframe, {
+                events: {
+                    'onStateChange': function (event) {
+                        // Verifica se o estado do vídeo mudou para reproduzindo
+                        if (event.data === YT.PlayerState.PLAYING) {
+                            // Pausa o vídeo atual se outro vídeo começar a reproduzir
+                            const currentPlayer = event.target;
+                            if (currentPlayer !== currentVideoPlayer) {
+                                pauseCurrentVideo();
+                                currentVideoPlayer = currentPlayer;
+                            }
+                        }
+                    }
+                }
+            }));
+        });
+
+        // Adiciona o evento de clique para cada vídeo
+        players.forEach(function (player) {
+            player.getIframe().addEventListener('click', function () {
+                onVideoClicked(player);
+            });
+        });
+    }
+</script>
 
 
 
