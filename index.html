@@ -104,14 +104,7 @@
       .button-link:hover {
         background-color: #75818e; /* Altera a cor de fundo ao passar o mouse */
       }
-
-      .iframe {
-        text-align: center;
-        font-size: 15px;
-        
-      }
-
-      
+            
     </style>
   </head>
   <body>
@@ -479,10 +472,11 @@
       <p style="font-family: cursive; font-weight: bold; font-size: 20px;">Dependo de ti e Enfermo de Amor</p>
 
       <details>
-       <summary><p style="font-weight: bold;">Clique aqui para Ouvir</p></summary>
-        <iframe class="youtube-video" width="250" height="215" src="https://www.youtube.com/embed/TDFydKZ1pXI?si=m51Ao774qEz13iaV" frameborder="0" allowfullscreen></iframe>
-        <br><br>
-        <iframe class="youtube-video" width="250" height="215" src="https://www.youtube.com/embed/q_FMxi42-co?si=VDhwFi8L1SW1I_q9" frameborder="0" allowfullscreen></iframe>
+      
+        <div class="video-gallery">
+        <div class="video-container" id="video1"></div>
+        <div class="video-container" id="video2"></div>
+    </div>
           
         </div>
 </details>
@@ -642,6 +636,57 @@
     }
 </script>
 
+<script>
+   // Carregar a API do YouTube
+function loadYouTubeAPI() {
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
+
+// IDs dos vídeos do YouTube
+const videoIds = ['TDFydKZ1pXI', 'q_FMxi42-co'];
+
+let players = [];
+
+// Função chamada quando a API do YouTube estiver pronta
+function onYouTubeIframeAPIReady() {
+    // Criar um player para cada vídeo
+    videoIds.forEach((videoId, index) => {
+        const player = new YT.Player(`video${index + 1}`, {
+            height: '315',
+            width: '560',
+            videoId: videoId,
+            playerVars: {
+                'autoplay': 0, // Não reproduzir automaticamente ao carregar
+                'controls': 1 // Mostrar controles do player
+            },
+            events: {
+                'onStateChange': onPlayerStateChange
+            }
+        });
+        players.push(player);
+    });
+}
+
+// Função chamada quando o estado do player muda
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING) {
+        // Pausar os outros players quando um começa a tocar
+        const currentPlayer = event.target;
+        players.forEach(player => {
+            if (player !== currentPlayer && player.getPlayerState() === YT.PlayerState.PLAYING) {
+                player.pauseVideo();
+            }
+        });
+    }
+}
+
+// Carregar a API do YouTube quando a página carregar
+window.onload = loadYouTubeAPI;
+
+</script>
 
 
   </body>

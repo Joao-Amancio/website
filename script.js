@@ -61,8 +61,6 @@ function plusSlides(n) {
   slides[slideIndex - 1].style.display = "block"
 }
 
-
-
 // Função para recuperar o valor atual do contador do armazenamento local
 function getCounter() {
   return localStorage.getItem("visits") || 0
@@ -82,8 +80,6 @@ window.onload = function () {
 }
 
 src = "https://contador.s12.com.br/ad.js?id=dyZ6w3bZa4aCxC4y"
-
-
 
 /////////////
 

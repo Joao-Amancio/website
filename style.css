@@ -48,7 +48,7 @@ body {
   background-color: black;
   background-size: cover;
   padding: 20px;
-  
+
   margin-left: 0;
   margin-right: 0;
   top: 0;
@@ -201,6 +201,7 @@ nav ul li a {
   /* Estilos adicionais para dispositivos móveis */
   .nav.active {
     top: 75px; /* Posiciona o menu abaixo do cabeçalho */
+    
   }
 
   .nav li {
@@ -232,6 +233,33 @@ nav ul li a {
   .nav {
     display: flex; /* Garantir que o menu esteja visível no desktop */
     justify-content: center; /* Centralizar os itens do menu */
+  }
+}
+
+/*GALERIA DE VIDEOS*/
+
+.video-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.video-container {
+  position: relative;
+  width: calc(
+    50% - 20px
+  ); /* Ajustar para 50% da largura com espaço entre os vídeos */
+  max-width: 560px; /* Largura máxima do player de vídeo */
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    width: 100%; /* Em telas menores, ocupar 100% da largura */
   }
 }
 
