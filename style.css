@@ -443,12 +443,14 @@ textarea {
   height: 40px;
 }
 
+
+/*
 summary {
   display: list-item;
   cursor: pointer;
   list-style: none;
   padding: 5px;
  
-}
+} */
 
 
