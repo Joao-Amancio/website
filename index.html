@@ -7,10 +7,13 @@
     <script src="https://www.youtube.com/iframe_api"></script>
     <link rel="stylesheet" href="./style.css" />
     <style>
-      @media (max-width: 768px) {
+
+       @media (max-width: 768px) {
+        
         .nav.active {
           flex-direction: column;
           align-items: center;
+          
         }
         .nav.active ul {
           display: flex;
@@ -237,10 +240,13 @@
         <h3 style="font-family: 'Courier New', Courier, monospace;">Meu Refúgio</h3>
         <br />
         <img class="meurefugio" src="./assets/meu refugio.jpg" alt="" />
+        <br><br><details>
+          <summary>clique aqui para ver mais fotos</summary>
         <img class="cd" src="./assets/cd meu refugio.png" alt="" />
         <img class="mrefugio" src="./assets/mrefugio.png" alt="" />
+        </details>
        
-        <br><br><br>
+        <br>
             <p><details><summary>
           Este é o primeiro Álbum Meu refúgio gravado
           em 2002.
@@ -477,12 +483,17 @@
       </section>
       <br />
       <section id="videos" style="background-color: #272222; border-radius: 50px;">
-      <br><h1 style="text-align: center;">Músicas - Videos</h1>
-      <p style="font-family: cursive; font-weight: bold; font-size: 20px;text-align: center;">Dependo de ti e Enfermo de Amor</p>
+      <br><h1 style="text-align: center;">Músicas - Videos - Pregações</h1>
+      
+      <details>
+        <summary style="text-align: center;">Clique aqui para assistir <br><br></summary>
           <div class="video-gallery">
               <div class="video-container" id="video1"></div>
               <div class="video-container" id="video2"></div>
+              <div class="video-container" id="video3"></div>
+              <div class="video-container" id="video4"></div>
         </div>
+        </details>
        </section>
       <section id="contato">
         <img class="violao" src="./assets/violao.jpeg" alt="" />
@@ -643,7 +654,7 @@ function loadYouTubeAPI() {
 }
 
 // IDs dos vídeos do YouTube
-const videoIds = ['TDFydKZ1pXI', 'q_FMxi42-co'];
+const videoIds = ['TDFydKZ1pXI', 'q_FMxi42-co', 'qWCrObxTJAE', 'GBy5t29r-kg'];
 
 let players = [];
 
