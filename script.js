@@ -151,3 +151,50 @@ formSubmit.init()
 
 //
 
+document.addEventListener("DOMContentLoaded", function () {
+  const videoContainers = document.querySelectorAll(".video-container")
+
+  // Function to check if videos are loaded and visible
+  function checkVideos() {
+    videoContainers.forEach((container) => {
+      const video = container.querySelector("video")
+      if (!video) {
+        // Assuming you have a function to reload or recreate the video element
+        reloadVideo(container)
+      }
+    })
+  }
+
+  // Function to reload a video element (dummy implementation, replace with your logic)
+  function reloadVideo(container) {
+    const videoId = container.id
+    const videoIds = [
+      "TDFydKZ1pXI",
+      "q_FMxi42-co",
+      "qWCrObxTJAE",
+      "GBy5t29r-kg",
+    ]
+    const newVideo = document.createElement("video")
+    newVideo.src = videoSrc
+    newVideo.controls = true
+    container.appendChild(newVideo)
+  }
+
+  // Observe changes in the DOM
+  const observer = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      if (mutation.type === "childList") {
+        checkVideos()
+      }
+    })
+  })
+
+  // Start observing the video gallery for changes
+  const config = { childList: true, subtree: true }
+  const videoGallery = document.querySelector(".video-gallery")
+  observer.observe(videoGallery, config)
+
+  // Initial check
+  checkVideos()
+})
+
