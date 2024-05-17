@@ -626,111 +626,68 @@
       })
     </script>
     
-     <script>
-    // Variável para armazenar a referência ao player do vídeo ativo
-    let currentVideoPlayer = null;
+     
+    <script>
+    let currentPlayers = {}; // Armazenar os players atuais
 
-    // Função para pausar o vídeo atual
-    function pauseCurrentVideo() {
-        if (currentVideoPlayer) {
-            currentVideoPlayer.pauseVideo();
+    // IDs dos vídeos do YouTube
+    const videoIds = ["TDFydKZ1pXI", "q_FMxi42-co", "qWCrObxTJAE", "GBy5t29r-kg"];
+
+    // Função para carregar vídeos do YouTube no container
+    function loadYouTubeVideo(containerId, videoId) {
+      const player = new YT.Player(containerId, {
+        height: '315',
+        width: '340',
+        videoId: videoId,
+        events: {
+          'onReady': function(event) {
+            console.log("Player pronto:", event.target.getVideoUrl());
+            event.target.playVideo(); // Iniciar o vídeo quando estiver pronto
+            currentPlayers[containerId] = event.target;
+          },
+          'onStateChange': function(event) {
+            console.log("Estado do player mudou para", event.data);
+            onPlayerStateChange(event, event.target);
+          }
         }
+      });
     }
 
-    // Função chamada quando um vídeo é clicado
-    function onVideoClicked(player) {
-        // Pausa o vídeo atual (se houver)
-        pauseCurrentVideo();
-
-        // Define o novo vídeo como o vídeo ativo
-        currentVideoPlayer = player;
-
-        // Reproduz o novo vídeo
-        player.playVideo();
+    // Função chamada quando o estado do player muda
+    function onPlayerStateChange(event, currentPlayer) {
+      if (event.data === YT.PlayerState.PLAYING) {
+        console.log("Iniciando a reprodução, pausando outros players...");
+        pauseOtherPlayers(currentPlayer);
+      }
     }
 
-    // Função chamada quando a API do YouTube está pronta
-    function onYouTubeIframeAPIReady() {
-        // Cria os players para cada vídeo
-        const players = [];
-        document.querySelectorAll('.youtube-video').forEach(function (iframe) {
-            players.push(new YT.Player(iframe, {
-                events: {
-                    'onStateChange': function (event) {
-                        // Verifica se o estado do vídeo mudou para reproduzindo
-                        if (event.data === YT.PlayerState.PLAYING) {
-                            // Pausa o vídeo atual se outro vídeo começar a reproduzir
-                            const currentPlayer = event.target;
-                            if (currentPlayer !== currentVideoPlayer) {
-                                pauseCurrentVideo();
-                                currentVideoPlayer = currentPlayer;
-                            }
-                        }
-                    }
-                }
-            }));
-        });
-
-        // Adiciona o evento de clique para cada vídeo
-        players.forEach(function (player) {
-            player.getIframe().addEventListener('click', function () {
-                onVideoClicked(player);
-            });
-        });
+    // Função para pausar outros players
+    function pauseOtherPlayers(currentPlayer) {
+      console.log("Pausando outros players...");
+      for (const containerId in currentPlayers) {
+        if (currentPlayers.hasOwnProperty(containerId)) {
+          const player = currentPlayers[containerId];
+          if (player && player !== currentPlayer) {
+            console.log("Pausando o player", player.getVideoUrl());
+            player.pauseVideo();
+          }
+        }
+      }
     }
-</script>
 
-<script>
-   // Carregar a API do YouTube
-function loadYouTubeAPI() {
-    const tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-}
-
-
-
-let players = [];
-
-// Função chamada quando a API do YouTube estiver pronta
-function onYouTubeIframeAPIReady() {
-    // Criar um player para cada vídeo
-    videoIds.forEach((videoId, index) => {
-        const player = new YT.Player(`video${index + 1}`, {
-            //height: '315',
-            //width: '360',
-            videoId: videoId,
-            playerVars: {
-                'autoplay': 0, // Não reproduzir automaticamente ao carregar
-                'controls': 1 // Mostrar controles do player
-            },
-            events: {
-                'onStateChange': onPlayerStateChange
-            }
+    // Iniciar vídeos quando o documento estiver carregado
+    window.onload = function() {
+      if (typeof YT !== 'undefined' && YT.loaded) {
+        console.log("API do YouTube está pronta");
+        const videoContainers = document.querySelectorAll(".video-container");
+        videoContainers.forEach((container, index) => {
+          loadYouTubeVideo(container.id, videoIds[index % videoIds.length]);
         });
-        players.push(player);
-    });
-}
-
-// Função chamada quando o estado do player muda
-function onPlayerStateChange(event) {
-    if (event.data == YT.PlayerState.PLAYING) {
-        // Pausar os outros players quando um começa a tocar
-        const currentPlayer = event.target;
-        players.forEach(player => {
-            if (player !== currentPlayer && player.getPlayerState() === YT.PlayerState.PLAYING) {
-                player.pauseVideo();
-            }
-        });
-    }
-}
-
-// Carregar a API do YouTube quando a página carregar
-window.onload = loadYouTubeAPI;
-
-</script>
-
-
+      } else {
+        console.error("A API do YouTube não está carregada.");
+      }
+    };
+  </script>
+    
   </body>
 </html>

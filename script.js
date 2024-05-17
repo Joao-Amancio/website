@@ -151,8 +151,9 @@ const formSubmit = new FormSubmit({
 })
 formSubmit.init()
 
-//
+// VIDEOS
 
+/*
 document.addEventListener("DOMContentLoaded", function () {
   // Função para carregar vídeos do YouTube no container
   function loadYouTubeVideo(container, videoId) {
@@ -199,4 +200,111 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Verificação inicial
   checkVideos()
-})
+}) */
+
+/*
+
+// Variável para armazenar a referência ao player do vídeo ativo
+    let currentVideoPlayer = null;
+
+    // Função para pausar o vídeo atual
+    function pauseCurrentVideo() {
+        if (currentVideoPlayer) {
+            currentVideoPlayer.pauseVideo();
+        }
+    }
+
+    // Função chamada quando um vídeo é clicado
+    function onVideoClicked(player) {
+        // Pausa o vídeo atual (se houver)
+        pauseCurrentVideo();
+
+        // Define o novo vídeo como o vídeo ativo
+        currentVideoPlayer = player;
+
+        // Reproduz o novo vídeo
+        player.playVideo();
+    }
+
+    // Função chamada quando a API do YouTube está pronta
+    function onYouTubeIframeAPIReady() {
+        // Cria os players para cada vídeo
+        const players = [];
+        document.querySelectorAll('.youtube-video').forEach(function (iframe) {
+            players.push(new YT.Player(iframe, {
+                events: {
+                    'onStateChange': function (event) {
+                        // Verifica se o estado do vídeo mudou para reproduzindo
+                        if (event.data === YT.PlayerState.PLAYING) {
+                            // Pausa o vídeo atual se outro vídeo começar a reproduzir
+                            const currentPlayer = event.target;
+                            if (currentPlayer !== currentVideoPlayer) {
+                                pauseCurrentVideo();
+                                currentVideoPlayer = currentPlayer;
+                            }
+                        }
+                    }
+                }
+            }));
+        });
+
+        // Adiciona o evento de clique para cada vídeo
+        players.forEach(function (player) {
+            player.getIframe().addEventListener('click', function () {
+                onVideoClicked(player);
+            });
+        });
+    }
+
+
+
+   // Carregar a API do YouTube
+function loadYouTubeAPI() {
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
+
+
+
+let players = [];
+
+// Função chamada quando a API do YouTube estiver pronta
+function onYouTubeIframeAPIReady() {
+    // Criar um player para cada vídeo
+    videoIds.forEach((videoId, index) => {
+        const player = new YT.Player(`video${index + 1}`, {
+            //height: '315',
+            //width: '360',
+            videoId: videoId,
+            playerVars: {
+                'autoplay': 0, // Não reproduzir automaticamente ao carregar
+                'controls': 1 // Mostrar controles do player
+            },
+            events: {
+                'onStateChange': onPlayerStateChange
+            }
+        });
+        players.push(player);
+    });
+}
+
+// Função chamada quando o estado do player muda
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING) {
+        // Pausar os outros players quando um começa a tocar
+        const currentPlayer = event.target;
+        players.forEach(player => {
+            if (player !== currentPlayer && player.getPlayerState() === YT.PlayerState.PLAYING) {
+                player.pauseVideo();
+            }
+        });
+    }
+}
+
+// Carregar a API do YouTube quando a página carregar
+window.onload = loadYouTubeAPI;
+
+
+*/
