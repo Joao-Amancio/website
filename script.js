@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Cria o iframe do YouTube
     const iframe = document.createElement("iframe")
     iframe.src = `https://www.youtube.com/embed/${videoId}`
-    iframe.width = "360"
+    iframe.width = "340"
     iframe.height = "315"
     iframe.frameBorder = "0"
     iframe.allow =
