@@ -123,6 +123,8 @@ body {
   font-size: 20px;
   cursor: pointer;
   z-index: 1;
+  -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
+  outline: none; /* Remove o contorno de foco */
 }
 
 .prev {
@@ -160,6 +162,8 @@ nav ul li a {
   cursor: pointer;
   display: none;
   font-weight: bold;
+  -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
+  outline: none; /* Remove o contorno de foco */
 }
 
 .logo {

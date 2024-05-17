@@ -662,8 +662,7 @@ function loadYouTubeAPI() {
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 }
 
-// IDs dos vídeos do YouTube
-const videoIds = ['TDFydKZ1pXI', 'q_FMxi42-co', 'qWCrObxTJAE', 'GBy5t29r-kg'];
+
 
 let players = [];
 
@@ -673,7 +672,7 @@ function onYouTubeIframeAPIReady() {
     videoIds.forEach((videoId, index) => {
         const player = new YT.Player(`video${index + 1}`, {
             height: '315',
-            width: '560',
+            width: '360',
             videoId: videoId,
             playerVars: {
                 'autoplay': 0, // Não reproduzir automaticamente ao carregar
