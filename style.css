@@ -199,6 +199,17 @@ nav ul li a {
     z-index: 2;
     transition: top 3s ease;
   }
+
+  .nav {
+    -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
+  outline: none; /* Remove o contorno de foco */
+  }
+
+  .nav ul li a {
+    -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
+  outline: none; /* Remove o contorno de foco */
+  }
+
   .menu-toggle {
     display: block; /* Mostrar o botão de menu */
   }
@@ -305,6 +316,16 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 20px;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
+  outline: none; /* Remove o contorno de foco */
+}
+
+button a {
+  -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
+  outline: none; /* Remove o contorno de foco */
 }
 
 button:hover {
@@ -446,6 +467,16 @@ textarea {
   transition: background 0.2s;
   border-radius: 50%;
   color: #fff;
+}
+
+#social-links {
+  -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
+  outline: none; /* Remove o contorno de foco */
+}
+
+#social-links a {
+  -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
+  outline: none; /* Remove o contorno de foco */
 }
 
 #social-links a:hover {
