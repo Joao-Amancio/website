@@ -444,13 +444,18 @@ textarea {
 }
 
 
-/*
+
 summary {
   display: list-item;
   cursor: pointer;
   list-style: none;
   padding: 5px;
  
-} */
+} 
+
+summary {
+  -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
+  outline: none; /* Remove o contorno de foco */
+}
 
 

@@ -152,35 +152,36 @@ formSubmit.init()
 //
 
 document.addEventListener("DOMContentLoaded", function () {
-  const videoContainers = document.querySelectorAll(".video-container")
+  // Função para carregar vídeos do YouTube no container
+  function loadYouTubeVideo(container, videoId) {
+    // Cria o iframe do YouTube
+    const iframe = document.createElement("iframe")
+    iframe.src = `https://www.youtube.com/embed/${videoId}`
+    iframe.width = "360"
+    iframe.height = "315"
+    iframe.frameBorder = "0"
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    iframe.allowFullscreen = true
+    container.innerHTML = "" // Limpa o container antes de adicionar o novo vídeo
+    container.appendChild(iframe)
+  }
 
-  // Function to check if videos are loaded and visible
+  // IDs dos vídeos do YouTube
+  const videoIds = ["TDFydKZ1pXI", "q_FMxi42-co", "qWCrObxTJAE", "GBy5t29r-kg"]
+
+  // Função para verificar e carregar vídeos
   function checkVideos() {
-    videoContainers.forEach((container) => {
-      const video = container.querySelector("video")
-      if (!video) {
-        // Assuming you have a function to reload or recreate the video element
-        reloadVideo(container)
+    const videoContainers = document.querySelectorAll(".video-container")
+    videoContainers.forEach((container, index) => {
+      if (container.children.length === 0) {
+        // Se o container está vazio, carrega o vídeo
+        loadYouTubeVideo(container, videoIds[index % videoIds.length])
       }
     })
   }
 
-  // Function to reload a video element (dummy implementation, replace with your logic)
-  function reloadVideo(container) {
-    const videoId = container.id
-    const videoIds = [
-      "TDFydKZ1pXI",
-      "q_FMxi42-co",
-      "qWCrObxTJAE",
-      "GBy5t29r-kg",
-    ]
-    const newVideo = document.createElement("video")
-    newVideo.src = videoSrc
-    newVideo.controls = true
-    container.appendChild(newVideo)
-  }
-
-  // Observe changes in the DOM
+  // Observa mudanças no DOM
   const observer = new MutationObserver(function (mutations) {
     mutations.forEach(function (mutation) {
       if (mutation.type === "childList") {
@@ -189,12 +190,11 @@ document.addEventListener("DOMContentLoaded", function () {
     })
   })
 
-  // Start observing the video gallery for changes
+  // Configuração do observador
   const config = { childList: true, subtree: true }
   const videoGallery = document.querySelector(".video-gallery")
   observer.observe(videoGallery, config)
 
-  // Initial check
+  // Verificação inicial
   checkVideos()
 })
-
