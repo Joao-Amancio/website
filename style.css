@@ -202,12 +202,12 @@ nav ul li a {
 
   .nav {
     -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
-  outline: none; /* Remove o contorno de foco */
+    outline: none; /* Remove o contorno de foco */
   }
 
   .nav ul li a {
     -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
-  outline: none; /* Remove o contorno de foco */
+    outline: none; /* Remove o contorno de foco */
   }
 
   .menu-toggle {
@@ -488,6 +488,11 @@ textarea {
   height: 40px;
 }
 
+.visita {
+  -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
+  outline: none; /* Remove o contorno de foco */
+}
+
 summary {
   display: list-item;
   cursor: pointer;
@@ -498,4 +503,31 @@ summary {
 summary {
   -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
   outline: none; /* Remove o contorno de foco */
+}
+
+/* Estilo geral para remover a seta no Android e em outros navegadores */
+summary {
+  list-style: none; /* Remove a seta */
+}
+
+/* Estilo específico para Safari no iOS */
+summary::-webkit-details-marker {
+  display: none; /* Remove a seta no Safari */
+}
+
+.imagem-girando {
+  width: 200px;
+  height: 200px;
+  animation: girar 6s linear infinite; /* Aplica a animação */
+  border-radius: 50%;
+}
+
+/* Define a animação */
+@keyframes girar {
+  from {
+    transform: rotate(0deg); /* Começa a girar a partir de 0 graus */
+  }
+  to {
+    transform: rotate(360deg); /* Completa uma rotação completa (360 graus) */
+  }
 }
