@@ -628,6 +628,7 @@
     
      
     <script>
+      
     let currentPlayers = {}; // Armazenar os players atuais
 
     // IDs dos vídeos do YouTube
@@ -642,7 +643,8 @@
         events: {
           'onReady': function(event) {
             console.log("Player pronto:", event.target.getVideoUrl());
-            event.target.playVideo(); // Iniciar o vídeo quando estiver pronto
+            
+            //event.target.playVideo(); // Iniciar o vídeo quando estiver pronto
             currentPlayers[containerId] = event.target;
           },
           'onStateChange': function(event) {
@@ -686,8 +688,12 @@
       } else {
         console.error("A API do YouTube não está carregada.");
       }
-    };
+    }; 
   </script>
+
+ 
+   
+
     
   </body>
 </html>
