@@ -62,11 +62,13 @@ function plusSlides(n) {
 }
 
 // Função para recuperar o valor atual do contador do armazenamento local
+/*
 function getCounter() {
   return localStorage.getItem("visits") || 0
 }
 
 // Função para incrementar o contador de visitas e atualizar a exibição
+
 function incrementCounter() {
   let counter = parseInt(getCounter())
   counter++
@@ -79,7 +81,7 @@ window.onload = function () {
   incrementCounter()
 }
 
-src = "https://contador.s12.com.br/ad.js?id=dyZ6w3bZa4aCxC4y"
+src = "https://contador.s12.com.br/ad.js?id=dyZ6w3bZa4aCxC4y"  */
 
 /////////////
 
