@@ -508,23 +508,22 @@ summary::-webkit-details-marker {
 }
 
 .imagem-girando {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 200px; 
+  position: relative;
+  width: 198px;
+  height: 348px;
   animation: girar 6s linear infinite; /* Aplica a animação */
   border-radius: 50%;
   margin-bottom: -100px;
-  margin-top: -100px;
+  margin-top: -80px;
 }
 
 .imagem-girando2 {
-  display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 200px; 
+
+  height: 248px;
+  width: 338px;
   animation: girar 6s linear infinite; /* Aplica a animação */
 }
 
