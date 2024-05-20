@@ -509,11 +509,11 @@ summary::-webkit-details-marker {
 
 .imagem-girando {
   position: relative;
-  width: 220px;
-  height: 397px;
+  width: 200px;
+  height: 200px;
   animation: girar 6s linear infinite; /* Aplica a animação */
   border-radius: 50%;
-  
+ 
 }
 
 .imagem-girando2 {
@@ -521,8 +521,8 @@ summary::-webkit-details-marker {
   justify-content: center;
   align-items: center;
 
-  height: 218px;
-  width: 290px;
+  height: 200x;
+  width: 200px;
   animation: girar 6s linear infinite; /* Aplica a animação */
 }
 
