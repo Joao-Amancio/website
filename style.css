@@ -197,7 +197,7 @@ nav ul li a {
     font-size: 18px; /* Aumentar o tamanho da fonte do menu */
     opacity: 0.9;
     z-index: 2;
-    transition: top 3s ease;
+    
   }
 
   .nav {
@@ -257,6 +257,42 @@ nav ul li a {
     justify-content: center; /* Centralizar os itens do menu */
   }
 }
+
+
+#menu {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-in-out;
+    background-color: #333;
+}
+
+#menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu ul li {
+    text-align: center;
+}
+
+#menu ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: #333;
+    border-bottom: 1px solid #444;
+}
+
+#menu ul li a:hover {
+    background-color: #444;
+}
+
+#menu.active {
+    max-height: 500px; /* Ajuste a altura máxima conforme necessário */
+}
+
 
 /*GALERIA DE VIDEOS*/
 
@@ -513,7 +549,6 @@ summary::-webkit-details-marker {
   height: 200px;
   animation: girar 6s linear infinite; /* Aplica a animação */
   border-radius: 50%;
- 
 }
 
 .imagem-girando2 {
