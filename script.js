@@ -41,7 +41,7 @@ document.querySelectorAll(".menu ul li a").forEach((item) => {
 
 // Evento de carregamento da página
 window.addEventListener("load", function () {
-  document.querySelectorAll(".w50").forEach((section) => {
+  document.querySelectorAll(".nav").forEach((section) => {
     section.style.display = "block"
   })
   document.getElementById("main-boxes").classList.remove("active")

@@ -350,27 +350,27 @@ button:hover {
 
 /* Estilos adicionais para desktop */
 @media only screen and (min-width: 601px) {
-  .w50 {
+  .nav {
     margin: 0 auto; /* Centraliza a lista de navegação */
   }
 }
 
 /* Estilos adicionais para desktop */
 @media only screen and (min-width: 601px) {
-  .w50 {
+  .nav {
     margin: 0 auto; /* Centraliza a lista de navegação */
   }
 
-  .w50 ul {
+  .nav ul {
     display: flex; /* Torna a lista de navegação horizontal */
     padding: 0; /* Remove o preenchimento padrão da lista */
   }
 
-  .w50 li {
+  .nav li {
     margin-right: 20px; /* Mantém a margem entre os itens da lista */
   }
 
-  .w50 li:last-child {
+  .nav li:last-child {
     margin-right: 0; /* Remove a margem direita do último item da lista */
   }
 }
@@ -390,10 +390,10 @@ footer {
   .header {
     padding: 10px; /* Reduzir o padding do cabeçalho */
   }
-  .w50 {
+  .nav {
     padding: 10px 0; /* Adicionar espaço entre os itens do menu */
   }
-  .w50 li {
+  .nav li {
     margin-right: 0;
     margin-bottom: 10px; /* Aumentar o espaço entre os itens do menu */
   }
@@ -437,12 +437,12 @@ textarea {
 @media only screen and (max-width: 600px) {
   /* Outros estilos existentes... */
 
-  .w50 {
+  .nav {
     font-size: 18px; /* Aumentar o tamanho da fonte do menu */
     transition: top 0.5s; /* Adiciona transição suave ao movimento */
   }
 
-  .w50 li {
+  .nav li {
     margin-bottom: 15px; /* Aumentar o espaço entre os itens do menu */
   }
 }
