@@ -375,6 +375,13 @@ button:hover {
   }
 }
 
+/* Estilos para orientação paisagem */
+@media (max-width: 767px) and (orientation: landscape) {
+  .menu-icon {
+    width: 33.33%; /* Ajuste conforme necessário */
+  }
+}
+
 footer {
   background-color: #333;
   color: white;
