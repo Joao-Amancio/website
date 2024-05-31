@@ -158,7 +158,6 @@ body {
 .menu {
   -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
   outline: none; /* Remove o contorno de foco */
-
 }
 
 .menu-icon {
@@ -373,12 +372,10 @@ button:hover {
   .nav li:last-child {
     margin-right: 0; /* Remove a margem direita do último item da lista */
   }
-}
-
-/* Estilos para orientação paisagem */
-@media (max-width: 767px) and (orientation: landscape) {
-  .menu-icon {
-    width: 33.33%; /* Ajuste conforme necessário */
+  @media (max-width: 767px) and (orientation: landscape) {
+    .nav {
+      width: 33.33%; /* Ajuste conforme necessário */
+    }
   }
 }
 
