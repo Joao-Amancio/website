@@ -150,9 +150,15 @@ body {
   box-shadow: 10px 5px 5px black;
 }
 
-.menu-icon .menu {
+.menu-icon {
   -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
   outline: none; /* Remove o contorno de foco */
+}
+
+.menu {
+  -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
+  outline: none; /* Remove o contorno de foco */
+
 }
 
 .menu-icon {
@@ -193,7 +199,7 @@ body {
 .menu {
   position: absolute;
   top: 60px;
-  margin-top: 7px;
+  margin-top: 6px;
   left: 0;
   width: 48%;
   max-height: 0;
@@ -344,27 +350,27 @@ button:hover {
 
 /* Estilos adicionais para desktop */
 @media only screen and (min-width: 601px) {
-  .nav {
+  .w50 {
     margin: 0 auto; /* Centraliza a lista de navegação */
   }
 }
 
 /* Estilos adicionais para desktop */
 @media only screen and (min-width: 601px) {
-  .nav {
+  .w50 {
     margin: 0 auto; /* Centraliza a lista de navegação */
   }
 
-  .nav ul {
+  .w50 ul {
     display: flex; /* Torna a lista de navegação horizontal */
     padding: 0; /* Remove o preenchimento padrão da lista */
   }
 
-  .nav li {
+  .w50 li {
     margin-right: 20px; /* Mantém a margem entre os itens da lista */
   }
 
-  .nav li:last-child {
+  .w50 li:last-child {
     margin-right: 0; /* Remove a margem direita do último item da lista */
   }
 }
@@ -384,10 +390,10 @@ footer {
   .header {
     padding: 10px; /* Reduzir o padding do cabeçalho */
   }
-  .nav {
+  .w50 {
     padding: 10px 0; /* Adicionar espaço entre os itens do menu */
   }
-  .nav li {
+  .w50 li {
     margin-right: 0;
     margin-bottom: 10px; /* Aumentar o espaço entre os itens do menu */
   }
@@ -431,12 +437,12 @@ textarea {
 @media only screen and (max-width: 600px) {
   /* Outros estilos existentes... */
 
-  .nav {
+  .w50 {
     font-size: 18px; /* Aumentar o tamanho da fonte do menu */
     transition: top 0.5s; /* Adiciona transição suave ao movimento */
   }
 
-  .nav li {
+  .w50 li {
     margin-bottom: 15px; /* Aumentar o espaço entre os itens do menu */
   }
 }
