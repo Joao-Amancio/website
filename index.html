@@ -137,30 +137,24 @@
     </style>
   </head>
   <body>
-    <header class="header">
+    <div class="header">
       <div class="logo" style="text-align: center">AMANCIO JR</div>
-      <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
-      <nav class="nav">
+      <div class="menu-icon" id="menu-icon">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav class="menu" id="menu">
         <ul>
-          <li><a href="#home" onclick="openPage('home')">HOME</a></li>
-          <li>
-            <a href="#biografia" onclick="openPage('biografia')">BIOGRAFIA</a>
-          </li>
-          <li>
-            <a href="#discografia" onclick="openPage('discografia')"
-              >DISCOGRAFIA</a
-            >
-          </li>
-          <li>
-            <a href="#videos" onclick="openPage('videos')"
-              >VÍDEOS</a
-            >
-          </li>
-          <li><a href="#contato" onclick="openPage('contato')">CONTATO</a></li>
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#biografia">BIOGRAFIA</a></li>
+          <li><a href="#discografia">DISCOGRAFIA</a></li>
+          <li><a href="#videos">VIDEOS</a></li>
+          <li><a href="#contato">CONTATO</a></li>
         </ul>
       </nav>
       
-    </header>
+    </div>
       <div class="slideshow-container">
     <div class="slide fade">
         <img src="./assets/img1.jpg" alt="Slide 1">
@@ -181,7 +175,7 @@
     <main id="main-content">
         
       <br>
-      <section id="home">
+      <section id="home" class="w50">
         <div class="happy"><h1 style="text-align: center; font-size: 80px;">Home</h1></div>
         <div class="bday"><p style="font-weight: bold; text-align: center; font-size: 20px;">Que bom ter você por aqui!</p></div>
         <br />
@@ -202,9 +196,9 @@
         </p>
       </section>
       <br /><br><br>
-      <section id="biografia" class="bass">
+      <section id="biografia" class="bass w50">
         <div class="happy"><h1 style="text-align: center;">Biografia</h1></div>
-        <div class="bday"><p style="text-align: center; font-weight: bold; font-size: 18px; margin-top: 5px ;">Biografia e Testemunho</p></div>
+        <div class="bday"><p style="text-align: center; font-weight: bold; font-size: 18px; margin-top: 5px ;">Biografia e Testemunho</p></div><br>
         
         <img class="baixo" src="./assets/baixo.jpeg" alt="" />
         
@@ -261,12 +255,12 @@
       <br />
       <section
         id="discografia"
-        class="bass"
+        class="bass w50"
         style="background: #272222; border-radius: 20px"
       >
         <div class="happy" style="background-color: #272222; text-align: center;"><h1 >Discografia</h1></div>
-        <div class="bday"><h3>Ouça e faça o Download</h3></div>
-        <img src="./assets/imagem cd 1.png" alt="Imagem" class="imagem-girando"> 
+        <div class="bday"><br><h3>Ouça e faça o Download</h3></div>
+        <br><img src="./assets/imagem cd 1.png" alt="Imagem" class="imagem-girando"> 
 
         
         <br>
@@ -517,7 +511,7 @@
    
       </section>
       <br />
-      <section id="videos" style="background-color: #272222; border-radius: 50px;">
+      <section class="w50" id="videos" style="background-color: #272222; border-radius: 50px;">
       <br><h1 style="text-align: center; font-size: 20px;">Músicas - Videos - Pregações</h1>
       
       <details>
@@ -530,7 +524,7 @@
         </div>
         </details>
        </section>
-      <section id="contato">
+      <section id="contato" class="w50">
         <img class="violao" src="./assets/violao.jpeg" alt="" />
         <div class="happy"><h1 style="font-size: 35px">Contato / Agenda</h1></div>
         <div class="bday"><p style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px; margin-top: 10px;">Entre em contato conosco.</p></div>
@@ -571,6 +565,7 @@
           </form>
         </div>
       </section>
+      <a href="#" class="back-to-top" id="back-to-top">&#8679;</a>
     </main>
     <br /><br />
     

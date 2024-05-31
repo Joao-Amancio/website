@@ -1,31 +1,81 @@
-// script.js
-
-// Função para abrir a página com base no ID da seção
-function openPage(pageId) {
-  // Esconde todas as seções
-  var sections = document.getElementsByTagName("section")
-  for (var i = 0; i < sections.length; i++) {
-    sections[i].style.display = "none"
-  }
-
-  // Mostra apenas a seção com o ID correspondente
-  document.getElementById(pageId).style.display = "block"
-}
-
-// Função para alternar o menu
-function toggleMenu() {
-  var nav = document.querySelector(".nav")
-  nav.classList.toggle("active")
-
-  // Adiciona um event listener para fechar o menu quando clicar fora
-  if (nav.classList.contains("active")) {
-    document.addEventListener("click", closeMenuOutside)
+// Evento de clique no ícone do menu
+document.getElementById("menu-icon").addEventListener("click", function () {
+  this.classList.toggle("open")
+  var menu = document.getElementById("menu")
+  menu.classList.toggle("open")
+  if (menu.classList.contains("open")) {
+    menu.style.maxHeight = menu.scrollHeight + "px"
   } else {
-    document.removeEventListener("click", closeMenuOutside)
+    menu.style.maxHeight = 0
   }
-}
+})
 
-//
+// Evento de clique em cada item do menu
+document.querySelectorAll(".menu ul li a").forEach((item) => {
+  item.addEventListener("click", function (event) {
+    event.preventDefault()
+    var sectionId = this.getAttribute("href").substring(1)
+    var targetSection = document.getElementById(sectionId)
+
+    // Esconde todas as seções
+    document.querySelectorAll(".w50").forEach((section) => {
+      section.style.display = "none"
+    })
+
+    // Mostra a seção alvo
+    targetSection.style.display = "block"
+
+    // Adiciona a classe 'active' à caixa principal
+    document.getElementById("main-boxes").classList.add("active")
+
+    // Fecha o menu quando um item é clicado
+    var menu = document.getElementById("menu")
+    var menuIcon = document.getElementById("menu-icon")
+    if (menu.classList.contains("open")) {
+      menu.classList.remove("open")
+      menuIcon.classList.remove("open")
+      menu.style.maxHeight = 0
+    }
+  })
+})
+
+// Evento de carregamento da página
+window.addEventListener("load", function () {
+  document.querySelectorAll(".w50").forEach((section) => {
+    section.style.display = "block"
+  })
+  document.getElementById("main-boxes").classList.remove("active")
+})
+
+// Evento de redimensionamento da janela
+window.addEventListener("resize", function () {
+  var menu = document.getElementById("menu")
+  var menuIcon = document.getElementById("menu-icon")
+  if (window.innerWidth > 768) {
+    menu.style.maxHeight = null
+    menu.classList.remove("open")
+    menuIcon.classList.remove("open")
+  } else {
+    menu.style.maxHeight = 0
+  }
+})
+
+// Fecha o menu quando o usuário clica fora dele
+window.addEventListener("click", function (event) {
+  var menu = document.getElementById("menu")
+  var menuIcon = document.getElementById("menu-icon")
+  var isMenuOpen = menu.classList.contains("open")
+  // Verifica se o clique ocorreu fora do menu e do ícone do menu, e se o menu está aberto
+  if (
+    isMenuOpen &&
+    !menu.contains(event.target) &&
+    !menuIcon.contains(event.target)
+  ) {
+    menu.classList.remove("open") // Remove a classe 'open' do menu
+    menuIcon.classList.remove("open") // Remove a classe 'open' do ícone do menu
+    menu.style.maxHeight = 0 // Fecha o menu definindo a altura máxima como 0
+  }
+})
 
 let slideIndex = 0
 const slides = document.getElementsByClassName("slide")
@@ -61,29 +111,27 @@ function plusSlides(n) {
   slides[slideIndex - 1].style.display = "block"
 }
 
-// Função para recuperar o valor atual do contador do armazenamento local
-/*
-function getCounter() {
-  return localStorage.getItem("visits") || 0
-}
 
-// Função para incrementar o contador de visitas e atualizar a exibição
+// Evento de clique para a seta "Voltar ao topo"
+document.addEventListener("DOMContentLoaded", function () {
+  var backToTopButton = document.getElementById("back-to-top")
 
-function incrementCounter() {
-  let counter = parseInt(getCounter())
-  counter++
-  localStorage.setItem("visits", counter)
-  document.getElementById("counter").textContent = counter
-}
+  window.addEventListener("scroll", function () {
+    if (window.pageYOffset > 300) {
+      backToTopButton.style.display = "block"
+    } else {
+      backToTopButton.style.display = "none"
+    }
+  })
 
-// Ao carregar a página, incrementar o contador de visitas
-window.onload = function () {
-  incrementCounter()
-}
+  backToTopButton.addEventListener("click", function (event) {
+    event.preventDefault()
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  })
+})
 
-src = "https://contador.s12.com.br/ad.js?id=dyZ6w3bZa4aCxC4y"  */
 
-/////////////
+//////////////
 
 class FormSubmit {
   constructor(settings) {
@@ -151,5 +199,28 @@ const formSubmit = new FormSubmit({
 })
 formSubmit.init()
 
-//////////////////////////////////////////////
 
+/////////
+
+//animaçoes de div
+
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll(".fade-in")
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible")
+        }
+      })
+    },
+    {
+      threshold: 0.1,
+    }
+  )
+
+  sections.forEach((section) => {
+    observer.observe(section)
+  })
+})
