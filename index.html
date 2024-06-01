@@ -132,7 +132,11 @@
     text-decoration: none !important; /* Remove qualquer decoração de texto */
     cursor: help; /* Mantém o cursor de ajuda */
       }
+      #home {
+        position: relative;
+      }
 
+      
             
     </style>
   </head>
@@ -173,9 +177,9 @@
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
     <main id="main-content">
-        
+                      
       <br>
-      <section id="home" class="fade-in w50">
+      <section id="home" class="fade-in w50" style="z-index: 4;">
         <div class="happy"><h1 style="text-align: center; font-size: 80px;">Home</h1></div>
         <div class="bday"><p style="font-weight: bold; text-align: center; font-size: 20px;">Que bom ter você por aqui!</p></div>
         <br />
@@ -195,10 +199,11 @@
           "Apaixonado" ou "aquele que ama", assim somos por Jesus! Para qualquer contato, clique na aba de contato e fale diretamente comigo.<br />
         </p>
       </section>
-      <br /><br><br>
+      
+      <br /><br>
       <section id="biografia" class="fade-in bass w50">
-        <div class="happy"><h1 style="text-align: center;">Biografia</h1></div>
-        <div class="bday"><p style="text-align: center; font-weight: bold; font-size: 18px; margin-top: 5px ;">Biografia e Testemunho</p></div><br>
+        <div class="happy"><h1 style="text-align: center;position: relative;">Biografia</h1></div>
+        <div class="bday"><p style="text-align: center; font-weight: bold; font-size: 18px; margin-top: 2px ;">Biografia e Testemunho</p></div><br>
         
         <img class="baixo" src="./assets/baixo.jpeg" alt="" />
         
@@ -206,7 +211,7 @@
         <p>
            <details>
           <summary>
-          Bem pessoal, gostaria de falar agora um pouco sobre o que Deus fez na
+          &nbsp;&nbsp;&nbsp;Bem pessoal, gostaria de falar agora um pouco sobre o que Deus fez na
           minha vida. Eu nasci em 13/outubro/1979 e duas parteiras freiras
           fizeram meu parto, acontece que quando nasci, as parteiras freiras puseram os
           olhos em mim e insistentemente pediram a minha mãe para que me dessem
@@ -259,16 +264,17 @@
         style="background: #272222; border-radius: 20px"
       >
         <div class="happy" style="background-color: #272222; text-align: center;"><h1 >Discografia</h1></div>
-        <div class="bday"><h3>Ouça e faça o Download</h3></div>
-        <br><img src="./assets/imagem cd 1.png" alt="Imagem" class="imagem-girando"> 
-
+        <div class="bday"><br><h3>Ouça e faça o Download</h3></div>
+        <br>
+         <img src="./assets/imagem cd 1.png" alt="Imagem" class="imagem-girando"> 
         
         <br>
+        
         <h3 style="font-family: 'Courier New', Courier, monospace;">Meu Refúgio</h3>
-        <br />
         <img class="meurefugio" src="./assets/meu refugio.jpg" alt="" />
+        
         <br><br>
-        <details>
+       <details>
           <summary><span style="background-color: #3d4145;">clique aqui para ver mais fotos</span></summary>
         <img class="cd" src="./assets/cd meu refugio.png" alt="" />
         <img class="mrefugio" src="./assets/mrefugio.png" alt="" />
@@ -279,8 +285,9 @@
           Este é o primeiro Álbum Meu refúgio gravado
           em 2002.
         </p><br>
-        <abbr title="click para fazer o Download"><mark style="background-color: rgb(94, 154, 200); color: rgb(12, 11, 11); font-size: 20px; padding: 0px 10px 0 10px; border-radius: 20px;">Click aqui para fazer o Download do Álbum Meu Refúgio</mark></abbr><br><br>
+        <abbr title="click para fazer o Download"><mark style="background-color: rgb(94, 154, 200); color: rgb(12, 11, 11); font-size: 20px; padding: 0px 10px 0 10px; border-radius: 20px; ">Click aqui para fazer o Download do Álbum Meu Refúgio</mark></abbr><br><br>
         </summary>
+        
         <div class="input-group" style="display: block">
 
           <p>Os que esperam</p>
@@ -395,6 +402,9 @@
             </button>
           <br><br>
             </details>
+            
+           
+            
           <h1 style="font-family: 'Courier New', Courier, monospace;">Coração Contrito</h1>
 
           <img style="border: 2px solid rgb(248, 245, 245);" class="meurefugio" src="./assets/coracao.jpeg" alt="" />
@@ -511,7 +521,7 @@
    
       </section>
       <br />
-      <section class="fade-in w50" id="videos" style="background-color: #272222; border-radius: 50px;">
+      <section class="fade-in w50 videos" id="videos" style="background-color: #272222; border-radius: 50px;">
       <br><h1 style="text-align: center; font-size: 20px;">Músicas - Videos - Pregações</h1>
       
       <details>

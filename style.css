@@ -293,6 +293,14 @@ body {
   }
 }
 
+.videos {
+  display: grid;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 /* Estilo para o Formulário de contato*/
 .container {
   max-width: 800px;
@@ -524,8 +532,6 @@ summary::-webkit-details-marker {
 
 .imagem-girando2 {
   position: relative;
-  justify-content: center;
-  align-items: center;
 
   height: 200x;
   width: 200px;
@@ -580,4 +586,17 @@ section {
 section.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.float {
+  width: 50%;
+  float: left;
+  padding-right: 15px;
+}
+
+@media (max-width: 500px) {
+  .float {
+    width: 100%;
+    padding: 0;
+  }
 }
