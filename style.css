@@ -84,7 +84,6 @@ body {
   position: relative;
   max-width: 100%;
   overflow: hidden;
-  
 }
 
 .slide {
@@ -141,12 +140,11 @@ body {
 
 /* carrossel 2*/
 
-
 .swiper-container {
   position: relative;
   width: 80%;
-  max-width: 500px;
-  min-width: 400px;
+  max-width: 400px;
+  min-width: 300px;
   height: 550px; /* Altura fixa para o carrossel */
   box-shadow: 0 4px 8px rgba(255, 254, 254, 0.2);
   border-radius: 10px;
