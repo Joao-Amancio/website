@@ -142,7 +142,7 @@ body {
 
 .swiper-container {
   position: relative;
-  width: 78%;
+  width: 70%;
   max-width: 370px;
   min-width: 340px;
   height: 475px; /* Altura fixa para o carrossel */
