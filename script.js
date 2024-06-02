@@ -77,6 +77,7 @@ window.addEventListener("click", function (event) {
   }
 })
 
+// silde 1 
 let slideIndex = 0
 const slides = document.getElementsByClassName("slide")
 
@@ -111,6 +112,66 @@ function plusSlides(n) {
   slides[slideIndex - 1].style.display = "block"
 }
 
+// Touch-screen and mouse support
+let touchStartX = 0
+let touchEndX = 0
+
+function handleTouchStart(event) {
+  touchStartX = event.changedTouches[0].screenX
+}
+
+function handleTouchMove(event) {
+  touchEndX = event.changedTouches[0].screenX
+}
+
+function handleTouchEnd() {
+  if (touchEndX < touchStartX) {
+    // Swipe left
+    plusSlides(1)
+  } else if (touchEndX > touchStartX) {
+    // Swipe right
+    plusSlides(-1)
+  }
+}
+
+function handleMouseDown(event) {
+  touchStartX = event.screenX
+}
+
+function handleMouseUp(event) {
+  touchEndX = event.screenX
+  if (touchEndX < touchStartX) {
+    // Swipe left
+    plusSlides(1)
+  } else if (touchEndX > touchStartX) {
+    // Swipe right
+    plusSlides(-1)
+  }
+}
+
+document.addEventListener("touchstart", handleTouchStart, false)
+document.addEventListener("touchmove", handleTouchMove, false)
+document.addEventListener("touchend", handleTouchEnd, false)
+
+document.addEventListener("mousedown", handleMouseDown, false)
+document.addEventListener("mouseup", handleMouseUp, false)
+
+
+// slides 2
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Initializing Swiper...")
+  const swiper = new Swiper(".swiper-container", {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    spaceBetween: 20,
+    grabCursor: true,
+  })
+  console.log("Swiper initialized:", swiper)
+})
+
 
 // Evento de clique para a seta "Voltar ao topo"
 document.addEventListener("DOMContentLoaded", function () {
@@ -129,7 +190,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" })
   })
 })
-
 
 //////////////
 
@@ -198,7 +258,6 @@ const formSubmit = new FormSubmit({
   error: "<h1 class='error'>Não foi possível enviar sua mensagem.</h1>",
 })
 formSubmit.init()
-
 
 /////////
 
