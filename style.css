@@ -141,15 +141,6 @@ body {
 
 /* carrossel 2*/
 
-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-main {
-  text-align: center;
-  margin-top: 20px;
-}
 
 .swiper-container {
   position: relative;
