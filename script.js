@@ -77,7 +77,7 @@ window.addEventListener("click", function (event) {
   }
 })
 
-// silde 1 
+// silde 1
 let slideIndex = 0
 const slides = document.getElementsByClassName("slide")
 
@@ -156,7 +156,6 @@ document.addEventListener("touchend", handleTouchEnd, false)
 document.addEventListener("mousedown", handleMouseDown, false)
 document.addEventListener("mouseup", handleMouseUp, false)
 
-
 // slides 2
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Initializing Swiper...")
@@ -166,12 +165,11 @@ document.addEventListener("DOMContentLoaded", function () {
       delay: 3000,
       disableOnInteraction: false,
     },
-    spaceBetween: 20,
+    spaceBetween: 1,
     grabCursor: true,
   })
   console.log("Swiper initialized:", swiper)
 })
-
 
 // Evento de clique para a seta "Voltar ao topo"
 document.addEventListener("DOMContentLoaded", function () {

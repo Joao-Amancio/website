@@ -143,9 +143,9 @@ body {
 .swiper-container {
   position: relative;
   width: 80%;
-  max-width: 400px;
+  max-width: 445px;
   min-width: 400px;
-  height: 500px; /* Altura fixa para o carrossel */
+  height: 480px; /* Altura fixa para o carrossel */
   box-shadow: 0 4px 8px rgba(255, 254, 254, 0.2);
   border-radius: 10px;
   overflow: hidden;
