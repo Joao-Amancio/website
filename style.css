@@ -144,7 +144,7 @@ body {
   position: relative;
   width: 80%;
   max-width: 380px;
-  min-width: 350px;
+  min-width: 340px;
   height: 480px; /* Altura fixa para o carrossel */
   box-shadow: 0 4px 8px rgba(255, 254, 254, 0.2);
   border-radius: 10px;
