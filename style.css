@@ -190,7 +190,7 @@ body {
 
 .logo {
   display: flex;
-  font-size: 20px;
+  font-size: 25px;
   border: 1px solid white;
   border-radius: 8px;
   padding: 8px;
@@ -293,7 +293,7 @@ body {
   }
   .menu ul li {
     border-bottom: none;
-    padding: 5px 15px;
+    padding: 5px 10px;
   }
   .menu ul li a {
     color: #fff;
