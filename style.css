@@ -189,8 +189,8 @@ body {
 }
 
 .logo {
-  display: block;
-  font-size: 25px;
+  display: flex;
+  font-size: 20px;
   border: 1px solid white;
   border-radius: 8px;
   padding: 8px;
@@ -285,6 +285,7 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    z-index: 2;
   }
   .menu ul {
     flex-direction: row;
