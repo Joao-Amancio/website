@@ -146,7 +146,7 @@ body {
   max-width: 370px;
   min-width: 340px;
   height: 475px; /* Altura fixa para o carrossel */
-  box-shadow: 0 4px 8px rgba(255, 254, 254, 0.2);
+  box-shadow: 4px 4px 4px 4px rgba(255, 254, 254, 0.2);
   border-radius: 10px;
   overflow: hidden;
   background-color: #fff;
@@ -190,7 +190,7 @@ body {
 
 .logo {
   display: block;
-  text-align: center;
+
   font-size: 25px;
   margin: 0 auto;
   border: 1px solid white;
@@ -386,6 +386,11 @@ button {
 }
 
 button a {
+  -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
+  outline: none; /* Remove o contorno de foco */
+}
+
+a {
   -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
   outline: none; /* Remove o contorno de foco */
 }
