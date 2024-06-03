@@ -285,7 +285,7 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    z-index: 2;
+    
   }
   .menu ul {
     flex-direction: row;
@@ -293,7 +293,7 @@ body {
   }
   .menu ul li {
     border-bottom: none;
-    padding: 5px 10px;
+    padding: 5px 8px;
   }
   .menu ul li a {
     color: #fff;
