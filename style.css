@@ -390,7 +390,7 @@ button a {
   outline: none; /* Remove o contorno de foco */
 }
 
-.a {
+.a a {
   -webkit-tap-highlight-color: transparent; /* Remove o flash azul em dispositivos Android */
   outline: none; /* Remove o contorno de foco */
 }
