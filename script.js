@@ -282,8 +282,89 @@ document.addEventListener("DOMContentLoaded", function () {
   })
 })
 
-
 /////////////////////////////////////////
+
+document.addEventListener("DOMContentLoaded", function () {
+  const recadoForm = document.getElementById("recadoForm")
+  const recadosList = document.getElementById("recadosList")
+
+  recadoForm.addEventListener("submit", function (event) {
+    event.preventDefault()
+    const nome = document.getElementById("nome").value
+    const mensagem = document.getElementById("mensagem").value
+
+    if (nome && mensagem) {
+      const recado = {
+        id: Date.now(),
+        nome,
+        mensagem,
+        timestamp: Date.now(),
+      }
+
+      console.log("Adicionando recado:", recado)
+
+      adicionarRecado(recado)
+      exibirRecado(recado)
+
+      recadoForm.reset()
+    } else {
+      console.error("Nome ou mensagem não preenchidos.")
+    }
+  })
+
+  carregarRecados()
+
+  function adicionarRecado(recado) {
+    let recados = JSON.parse(localStorage.getItem("recados")) || []
+    recados.push(recado)
+    localStorage.setItem("recados", JSON.stringify(recados))
+    console.log("Recado adicionado ao localStorage:", recados)
+  }
+
+  function carregarRecados() {
+    let recados = JSON.parse(localStorage.getItem("recados")) || []
+    recados = recados.filter(
+      (recado) => Date.now() - recado.timestamp < 1209600000
+    ) // 2 semanas em milissegundos
+    localStorage.setItem("recados", JSON.stringify(recados))
+
+    console.log("Recados carregados do localStorage:", recados)
+
+    recados.forEach((recado) => {
+      exibirRecado(recado)
+    })
+  }
+
+  function exibirRecado(recado) {
+    const recadoElement = document.createElement("li")
+    recadoElement.setAttribute("data-id", recado.id)
+
+    recadoElement.innerHTML = `
+            <strong>${recado.nome}:</strong>
+            <p>${recado.mensagem}</p>
+            <button onclick="removerRecado(${recado.id})">Excluir</button>
+        `
+
+    recadosList.appendChild(recadoElement)
+    console.log("Recado exibido:", recado)
+  }
+
+  window.removerRecado = function (id) {
+    let recados = JSON.parse(localStorage.getItem("recados")) || []
+    recados = recados.filter((recado) => recado.id !== id)
+    localStorage.setItem("recados", JSON.stringify(recados))
+
+    const recadoElement = document.querySelector(`li[data-id="${id}"]`)
+    if (recadoElement) {
+      recadoElement.remove()
+      console.log("Recado removido:", id)
+    }
+  }
+})
+
+
+
+///////
 
 document.addEventListener("DOMContentLoaded", function () {
   const recadoForm = document.getElementById("recadoForm")
@@ -294,24 +375,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   recadoForm.addEventListener("submit", function (event) {
     event.preventDefault()
-    const nome = document.getElementById("nome").value
-    const mensagem = document.getElementById("mensagem").value
+    const nome = document.getElementById("nome").value.trim()
+    const mensagem = document.getElementById("mensagem").value.trim()
     const data = new Date()
 
-    const recado = {
-      nome: nome,
-      mensagem: mensagem,
-      data: data.getTime(),
+    if (nome && mensagem) {
+      const recado = {
+        nome: nome,
+        mensagem: mensagem,
+        data: data.getTime(),
+      }
+
+      // Adicionar recado ao localStorage
+      addRecado(recado)
+
+      // Atualizar lista de recados
+      renderRecado(recado)
+
+      // Limpar formulário
+      recadoForm.reset()
+    } else {
+      alert("Por favor, preencha todos os campos.")
     }
-
-    // Adicionar recado ao localStorage
-    addRecado(recado)
-
-    // Atualizar lista de recados
-    renderRecado(recado)
-
-    // Limpar formulário
-    recadoForm.reset()
   })
 
   function addRecado(recado) {
@@ -329,6 +414,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     localStorage.setItem("recados", JSON.stringify(recados))
+    recadosList.innerHTML = ""
     recados.forEach((recado) => {
       renderRecado(recado)
     })
@@ -343,8 +429,5 @@ document.addEventListener("DOMContentLoaded", function () {
   // Limpeza periódica
   setInterval(function () {
     loadRecados()
-    recadosList.innerHTML = ""
-    loadRecados()
   }, 24 * 60 * 60 * 1000) // Executar a cada 24 horas
 })
-

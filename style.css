@@ -667,62 +667,69 @@ section.visible {
   }
 }
 
-.container1 {
-  max-width: 600px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgb(249, 248, 248);
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
 }
 
-h1,
-h2 {
-  text-align: center;
-  color: rgb(249, 246, 246);
+h1, h2 {
+    text-align: center;
+    color: #333;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
-input,
-textarea {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-}
-/*
-button {
-  padding: 10px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+form input, form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-button:hover {
-  background-color: #218838;
-} */
-
-#recadosContainer1 {
-  margin-top: 20px;
+form button {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-#recadosList {
-  list-style: none;
-  padding: 0;
+form button:hover {
+    background: #0056b3;
 }
 
-#recadosList li {
-  background: #877d7d;
-  color: rgb(252, 251, 251);
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 4px;
-  z-index: 1000;
+#recadosContainer {
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #e1e1e1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+li button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
 }
