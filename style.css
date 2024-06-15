@@ -720,6 +720,7 @@ button:hover {
 
 #recadosList li {
   background: #e9ecef;
+  color: rgb(7, 7, 7);
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 4px;
