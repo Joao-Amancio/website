@@ -679,7 +679,7 @@ section.visible {
 h1,
 h2 {
   text-align: center;
-  color: black;
+  color: rgb(249, 246, 246);
 }
 
 form {
@@ -709,7 +709,7 @@ button:hover {
   background-color: #218838;
 } */
 
-#recadosContainer {
+#recadosContainer1 {
   margin-top: 20px;
 }
 
@@ -719,9 +719,10 @@ button:hover {
 }
 
 #recadosList li {
-  background: #e9ecef;
-  color: rgb(7, 7, 7);
+  background: #877d7d;
+  color: rgb(252, 251, 251);
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 4px;
+  z-index: 1000;
 }
