@@ -281,3 +281,70 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(section)
   })
 })
+
+
+/////////////////////////////////////////
+
+document.addEventListener("DOMContentLoaded", function () {
+  const recadoForm = document.getElementById("recadoForm")
+  const recadosList = document.getElementById("recadosList")
+
+  // Carregar recados do localStorage
+  loadRecados()
+
+  recadoForm.addEventListener("submit", function (event) {
+    event.preventDefault()
+    const nome = document.getElementById("nome").value
+    const mensagem = document.getElementById("mensagem").value
+    const data = new Date()
+
+    const recado = {
+      nome: nome,
+      mensagem: mensagem,
+      data: data.getTime(),
+    }
+
+    // Adicionar recado ao localStorage
+    addRecado(recado)
+
+    // Atualizar lista de recados
+    renderRecado(recado)
+
+    // Limpar formulário
+    recadoForm.reset()
+  })
+
+  function addRecado(recado) {
+    let recados = JSON.parse(localStorage.getItem("recados")) || []
+    recados.push(recado)
+    localStorage.setItem("recados", JSON.stringify(recados))
+  }
+
+  function loadRecados() {
+    let recados = JSON.parse(localStorage.getItem("recados")) || []
+    recados = recados.filter((recado) => {
+      const duasSemanas = 14 * 24 * 60 * 60 * 1000
+      const agora = new Date().getTime()
+      return agora - recado.data < duasSemanas
+    })
+
+    localStorage.setItem("recados", JSON.stringify(recados))
+    recados.forEach((recado) => {
+      renderRecado(recado)
+    })
+  }
+
+  function renderRecado(recado) {
+    const li = document.createElement("li")
+    li.innerHTML = `<strong>${recado.nome}</strong>: ${recado.mensagem}`
+    recadosList.appendChild(li)
+  }
+
+  // Limpeza periódica
+  setInterval(function () {
+    loadRecados()
+    recadosList.innerHTML = ""
+    loadRecados()
+  }, 24 * 60 * 60 * 1000) // Executar a cada 24 horas
+})
+
