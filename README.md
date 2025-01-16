@@ -14,7 +14,7 @@
 <p>Imagem do site, vista pelo desktop.</p>
 <p align="center">
 
-  <img alt="projeto site" src="https://github.com/user-attachments/assets/2a5a955d-ac7f-4ccb-b928-6e405342a9e7">
+  <img alt="projeto site" src="https://github.com/user-attachments/assets/8399ed8e-cc76-4007-9ef5-4747345f6c57">
   
 </p>
 
