@@ -20,7 +20,7 @@
 
 ## 🚀 Tecnologias
 
-Esse projeto (Anamnese) foi desenvolvido com as seguintes tecnologias:
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - HTML, CSS e JavaScript
 - Git e Github
